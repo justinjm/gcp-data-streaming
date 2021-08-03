@@ -10,13 +10,13 @@
 #   Usage:
 '''
 python main.py \
-    --gcp_project dz-apps \
+    --gcp_project justinjm-project-01 \
     --region us-central1 \
     --job_name 'data-stream' \
     --gcp_staging_location "gs://dz-apps-dataflow/staging" \
-    --gcp_tmp_location "gs://dz-apps-dataflow/tmp" \
+    --gcp_tmp_location "gs://justinjm-project-01/tmp" \
     --batch_size 10 \
-    --pubsub_topic projects/dz-apps/topics/data-stream \
+    --pubsub_topic projects/justinjm-project-01/topics/data-stream \
     --runner DirectRunner
 
 '''
@@ -77,14 +77,15 @@ def avg_by_group(GroupByKey_tuple):
 def run(argv=None):
     """Build and run the pipeline."""
     parser = argparse.ArgumentParser()
-    parser.add_argument('--gcp_project',          required=True,    default='gaming-demos',       help='GCP Project ID')
+    parser.add_argument('--gcp_project',          required=True,    default='justinjm-project-01',       help='GCP Project ID')
     parser.add_argument('--region',               required=True,    default='us-central1',        help='GCP Region')
     parser.add_argument('--job_name',             required=True,    default='antidote-ensemble',  help='Dataflow Job Name')
     parser.add_argument('--gcp_staging_location', required=True,    default='gs://xxxxx/staging', help='Dataflow Staging GCS location')
     parser.add_argument('--gcp_tmp_location',     required=True,    default='gs://xxxxx/tmp',     help='Dataflow tmp GCS location')
     parser.add_argument('--batch_size',           required=True,    default=10,                   help='Dataflow Batch Size')
-    parser.add_argument('--pubsub_topic',         required=True,    default='',                   help='Input PubSub Topic: projects/<project_id>/topics/<topic_name>')#parser.add_argument('--bq_dataset_name',      required=True,   default='',                   help='Output BigQuery Dataset')
-    #parser.add_argument('--bq_table_name',       required=True,   default='',                    help='Output BigQuery Table')
+    parser.add_argument('--pubsub_topic',         required=True,    default='',                   help='Input PubSub Topic: projects/<project_id>/topics/<topic_name>')
+    # parser.add_argument('--bq_dataset_name',      required=True,    default='',                   help='Output BigQuery Dataset')
+    # parser.add_argument('--bq_table_name',        required=True,    default='',                   help='Output BigQuery Table')
     parser.add_argument('--runner',               required=True,    default='DirectRunner',       help='Dataflow Runner - DataflowRunner or DirectRunner (local)')
     
     known_args, pipeline_args = parser.parse_known_args(argv)

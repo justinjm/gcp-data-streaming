@@ -20,7 +20,7 @@ from google.cloud import pubsub_v1
 # Config
 ####################################################
 
-project_id   = 'dz-apps' 
+project_id   = 'justinjm-project-01' 
 pubsub_topic = 'data-stream'
 
 usernames = ['mickey', 'minnie', 'snow white', 'anna', 'elsa', 'olaf', 'cinderella', 'belle', 'donald', 'goofy', 'simba']

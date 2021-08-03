@@ -1,4 +1,4 @@
-GCP_PROJECT_ID='dz-apps'
+GCP_PROJECT_ID='justinjm-project-01'
 
 # Create GCP PubSub Topics
 gcloud pubsub topics create data-stream
